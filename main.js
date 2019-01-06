@@ -2,7 +2,7 @@
   'use strict';
   
   
-  var SIZE = 2;
+  var SIZE = 3;
 //  var SIZE = 3;
   var currentNum = 0;
   var PANEL_WIDTH = 50;
