@@ -32,3 +32,27 @@ body {
   line-height: 40px;
   text-align: center;
 }
+
+.panel.flipped {
+  background: lightgray;
+  box-shadow: 0 4px 0 gray;
+}
+
+#btn {
+  cursor: pointer;
+  background: #f44336;
+  box-shadow: 0 5px 0 #d1483e;
+  padding: 7px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#btn:hover {
+  opacity: 8;
+}
+
+#btn:active {
+  margin-top: 15px;
+  box-shadow: none;
+}

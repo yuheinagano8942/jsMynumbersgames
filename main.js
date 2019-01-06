@@ -5,12 +5,19 @@
   
   var SIZE = 3;
   var i;
+  var currentNum = 0;
   
   function createPanel(num) {
     var panel;
     panel = document.createElement('div');
     panel.className = 'panel';
     panel.textContent = num;
+    panel.addEventListener('click', function() {
+      if ((this.textContent - 0) === currentNum) {
+        this.className = 'panel flipped';
+        currentNum++;
+      }
+    });
     return panel;
   }
   
