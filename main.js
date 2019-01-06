@@ -3,9 +3,18 @@
   
   var board = document.getElementById('board');
   
-  var panel;
-  panel = document.createElement('div');
-  panel.className = 'panel';
-  panel.textContent = 0;
-  board.appendChild(panel);
+  var SIZE = 3;
+  var i;
+  
+  function createPanel(num) {
+    var panel;
+    panel = document.createElement('div');
+    panel.className = 'panel';
+    panel.textContent = num;
+    return panel;
+  }
+  
+  for (i = 0; i < SIZE * SIZE; i++) {
+    board.appendChild(createPanel(i));
+  }
 })();
