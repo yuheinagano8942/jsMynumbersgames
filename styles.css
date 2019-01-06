@@ -31,7 +31,22 @@ body {
   box-shadow: 0 4px 0 #0088cc;
   line-height: 40px;
   text-align: center;
+  position: relative;
 }
+
+.panel.hidden::after {
+  content: '';
+  cursor: pointer;
+  background: lightgray;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  box-shadow: 0 4px 0 lightgray;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 
 .panel.flipped {
   background: lightgray;

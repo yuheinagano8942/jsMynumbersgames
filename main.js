@@ -10,7 +10,7 @@
   function createPanel(num) {
     var panel;
     panel = document.createElement('div');
-    panel.className = 'panel';
+    panel.className = 'panel hidden';
     panel.textContent = num;
     panel.addEventListener('click', function() {
       if ((this.textContent - 0) === currentNum) {
