@@ -1,12 +1,14 @@
 (function() {
   'use strict';
   
-  
+  // var SIZE = 2;
   var SIZE = 3;
-//  var SIZE = 3;
   var currentNum = 0;
   var PANEL_WIDTH = 50;
   var BOARD_PADDING = 10;
+  var startTime;
+  var timerId;
+  
   
   
   function createPanel(num) {
@@ -18,6 +20,9 @@
       if ((this.textContent - 0) === currentNum) {
         this.className = 'panel flipped';
         currentNum++;
+      }
+      if (currentNum === SIZE * SIZE) {
+        clearTimeout(timerId);
       }
     });
     return panel;
@@ -45,18 +50,32 @@
     panel = panels.splice(Math.floor(Math.random() * panels.length), 1);
     board.appendChild(panel[0]);
   }
-} 
+ }
+   
+   function runTimer() {
+     document.getElementById('score').textContent = ((Date.now() - startTime) / 1000).toFixed(2);
+     timerId = setTimeout(function() {
+       runTimer();
+     }, 10);
+   }
+   
    initBoard();
   
   
   document.getElementById('btn').addEventListener('click', function() {
     var panels = document.getElementsByClassName('panel');
     var i;
+    if (typeof timerId !== 'undefined') {
+      clearTimeout(timerId);
+    }
+    currentNum = 0;
     initBoard();
     for (i = 0; i < panels.length; i++) {
       panels[i].className = 'panel';
     }
     this.textContent = 'RESTART?';
     this.className = 'restart';
+    startTime = Date.now();
+    runTimer();
   });
 })();
